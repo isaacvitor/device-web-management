@@ -60,10 +60,8 @@ void APServer::setAccessPoint(String name, String password)
 {
     _apName = name;
     _apPassword = password;
-    if(_fsw ){
-        _fsw.WriteParameter("pAPName", name);
-        _fsw.WriteParameter("pAPPassword", password);
-    }
+    _fsw.WriteParameter("pAPName", name);
+    _fsw.WriteParameter("pAPPassword", password);
     
     delay(500);
 }
