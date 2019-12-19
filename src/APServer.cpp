@@ -5,22 +5,32 @@
 
 APServer::APServer(int port = 80)
     : _server(port)
+    , _index(DEFAULTINDEX)
+    ,_n(sizeof(DEFAULTINDEX))
 {
 }
 APServer::APServer(int port, FSWrapper fsw)
     : _server(port)
+    , _fsw(fsw)
+    , _index(DEFAULTINDEX)
+    ,_n(sizeof(DEFAULTINDEX))
 {
-    _fsw = fsw;
 }
 
 APServer::APServer()
     : _server()
+    , _index(DEFAULTINDEX)
+    ,_n(sizeof(DEFAULTINDEX))
+{
+}
+
+APServer::APServer(int port, FSWrapper fsw, const char *index, int n): _server(port), _fsw(fsw), _index(index), _n(n)
 {
 }
 
 void APServer::handleIndex()
 {
-    _server.send_P(200, "text/html", INDEX, sizeof(INDEX));
+    _server.send_P(200, "text/html", _index, _n);
 }
 
 void APServer::handleSave()
