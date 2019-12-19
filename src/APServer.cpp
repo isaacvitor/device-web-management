@@ -38,6 +38,7 @@ void APServer::handleSave()
     for (int i = 0; i < _server.args(); i++) {
         _fsw.WriteParameter(_server.argName(i), _server.arg(i));
     } 
+    _server.send_P(200, "text/html", SAVED, sizeof(SAVED));
 }
 
 void APServer::handleRestart()
