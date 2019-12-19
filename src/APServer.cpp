@@ -35,18 +35,9 @@ void APServer::handleIndex()
 
 void APServer::handleSave()
 {
-    static String params = "";
-    String apSSID = _server.arg("pAP-SSID");
-    String apPassword = _server.arg("pAP-Password");
-    String stSSID = _server.arg("pST-SSID");
-    String stPassword = _server.arg("pST-Password");
-
-    _fsw.WriteParameter("pAPName", apSSID);
-    _fsw.WriteParameter("pAPPassword", apPassword);
-    _fsw.WriteParameter("pSTName", stSSID);
-    _fsw.WriteParameter("pSTPassword", stPassword);
-
-    _server.send_P(200, "text/html", SAVED, sizeof(SAVED));
+    for (int i = 0; i < _server.args(); i++) {
+        _fsw.WriteParameter(_server.argName(i), _server.arg(i));
+    } 
 }
 
 void APServer::handleRestart()

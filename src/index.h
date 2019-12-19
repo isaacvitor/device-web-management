@@ -1,4 +1,4 @@
-const char INDEX[] PROGMEM = R"=====(
+const char DEFAULTINDEX[] PROGMEM = R"=====(
 <!DOCTYPE html>
 <html lang="en">
   <head>
