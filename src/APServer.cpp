@@ -43,11 +43,6 @@ void APServer::handleSave()
 
 void APServer::handleRestart()
 {
-    Serial.println(_fsw.ReadParameter("pAPName"));
-    Serial.println(_fsw.ReadParameter("pAPPassword"));
-    Serial.println(_fsw.ReadParameter("pSTName"));
-    Serial.println(_fsw.ReadParameter("pSTPassword"));
-    Serial.println("Restarting AP...");
     delay(5000);
     ESP.restart(); //Light
     //ESP.reset(); //Hard
@@ -84,5 +79,4 @@ void APServer::startAccessPoint()
     _server.on("/reset", std::bind(&APServer::handleRestart, this));
     _server.begin();
 
-    Serial.println("AccessPoint Listening");
 }
