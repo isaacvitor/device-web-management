@@ -62,16 +62,16 @@ void APServer::setAccessPoint(String name, String password)
 {
     _apName = name;
     _apPassword = password;
-    _fsw.WriteParameter("pAPName", name);
-    _fsw.WriteParameter("pAPPassword", password);
+    _fsw.WriteParameter("pAccessPointSSID", name);
+    _fsw.WriteParameter("pAccessPointPassword", password);
     
     delay(500);
 }
 
 void APServer::startAccessPoint()
 {
-    _apName = _fsw.ReadParameter("pAPName");
-    _apPassword = _fsw.ReadParameter("pAPPassword");
+    _apName = _fsw.ReadParameter("pAccessPointSSID");
+    _apPassword = _fsw.ReadParameter("pAccessPointPassword");
     if(_apName == ""){
         String name = WiFi.softAPmacAddress();
         WiFi.softAP(name.c_str(), "12345678"); 
