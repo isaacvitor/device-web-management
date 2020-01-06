@@ -138,7 +138,7 @@ const char SAVED[] PROGMEM = R"=====(
         </div>
         <div class="row"><p>Device parameters saved successufully</p></div>
         <div class="row">
-          <p class="warnig-message">Be sure to remove wire connected between D0(GPIO16) PIN and Ground PIN </p>
+          <p class="warnig-message">Be sure to remove wire connected between GPIO3(RX pin) PIN and Ground PIN </p>
           <p class="center">Reset device in <span id="countViewer"></span> seconds</p>
         </div>
         
